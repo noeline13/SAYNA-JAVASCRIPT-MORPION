@@ -1,0 +1,216 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+body {
+    color: #ffffff;
+}
+
+
+/* selection*/
+
+.select-box,
+.result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.select-box {
+    background: rgb(46, 4, 238);
+    padding: 20px 25px 25px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.select-box.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.select-box header {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px 0px 10px 100px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.select-box .title {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 20px 20px 20px 30px;
+}
+
+.select-box .options {
+    display: flex;
+    width: 100%;
+}
+
+.options button {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    border: none;
+    background: #56baed;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover,
+.btn button:hover {
+    transform: scale(0.96);
+}
+
+.options button.playerX {
+    margin-right: 5px;
+}
+
+.options button.playerO {
+    margin-left: 5px;
+}
+
+
+/* contenue*/
+
+.container {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    width: 332px;
+}
+
+.container.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/*title*/
+
+.name {
+    margin: 10% 0 10% 0;
+    font-family: "Lobster";
+    color: #ffffff;
+    font-size: 4em;
+    padding: 10px;
+    background-color: #3266ba;
+    border-radius: 3%
+}
+
+
+/*tour*/
+
+.range {
+    color: #000;
+    font-weight: 500;
+    padding: 5% 0 5% 10%;
+    border-radius: 1.5%;
+    position: relative;
+}
+
+.range .turn {
+    border-radius: 5px;
+    padding: 7px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.range .active .slider {
+    left: 50%;
+}
+
+.range .slider {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    height: 10%;
+    width: 48%;
+    background-color: #3266ba;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+/* dashboard*/
+
+.grid-container {
+    margin-top: 80px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+}
+
+.grid-item {
+    height: 100px;
+    width: 100px;
+    border: 2px solid #6b6b6b;
+    padding-left: 10px;
+    font-size: 30px;
+    text-align: center;
+    background-color: white;
+}
+
+
+/*resulta*/
+
+.result-box {
+    padding: 25px 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    opacity: 0;
+    text-align: center;
+    background: #fff;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won-text {
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+
+.result-box .won-text p {
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+.result-box .btn {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border: none;
+    background: #56baed;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
