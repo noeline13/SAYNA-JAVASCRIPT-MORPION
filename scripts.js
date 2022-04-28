@@ -71,7 +71,6 @@ function bot(runBot) {
         do {
             randomBox = array[Math.floor(Math.random() * array.length)];
         } while (allBox[randomBox].textContent !== "")
-        console.log(randomBox);
         if (array.length > 0) {
             if (players.classList.contains("player")) {
                 playerSign = "X";
@@ -111,7 +110,7 @@ function selectWinner() {
             playBoard.classList.remove("show");
             resultBox.classList.add("show");
         }, 700);
-        wonText.innerHTML = 'VICTORY'
+        wonText.innerHTML = 'VICTORY';
     }
 }
 
