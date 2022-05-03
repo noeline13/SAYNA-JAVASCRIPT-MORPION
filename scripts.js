@@ -29,8 +29,8 @@ selectOBtn.onclick = () => {
     players.setAttribute("class", "range active player")
 }
 
-let playerO = "O";
-let playerX = "X";
+let playerOIcon = "far fa-circle";
+let playerXIcon = "fas fa-times";
 let playerSign = "X";
 let runBot = true;
 
@@ -38,11 +38,11 @@ let runBot = true;
 function chooseCase(element) {
     if (players.classList.contains("player")) {
         playerSign = "O";
-        element.innerHTML = playerX;
+        element.innerHTML = `<i class="${playerXIcon}"></i>`;
         players.classList.add("active");
         element.setAttribute("id", playerSign)
     } else {
-        element.innerHTML = playerO;
+        element.innerHTML = `<i class="${playerOIcon}"></i>`;
         players.classList.add("active");
         element.setAttribute("id", playerSign);
     }
@@ -74,11 +74,11 @@ function bot(runBot) {
         if (array.length > 0) {
             if (players.classList.contains("player")) {
                 playerSign = "X";
-                allBox[randomBox].innerHTML = playerO;
+                allBox[randomBox].innerHTML = `<i class="${playerOIcon}"></i>`;
                 players.classList.remove("active");
                 allBox[randomBox].setAttribute("id", playerSign);
             } else {
-                allBox[randomBox].innerHTML = playerX;
+                allBox[randomBox].innerHTML = `<i class="${playerXIcon}"></i>`;
                 players.classList.add("active");
                 allBox[randomBox].setAttribute("id", playerSign);
             }
