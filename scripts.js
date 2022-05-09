@@ -44,8 +44,9 @@ function chooseCase(element) {
     if (players.classList.contains("player")) {
         playerSign = "O";
         element.innerHTML = playerXIcon;
-        slider.setAttribute("class", "active")
         element.setAttribute("id", playerSign)
+        slider.setAttribute("class", "active")
+
     } else {
         element.innerHTML = playerOIcon;
         element.setAttribute("id", playerSign);
@@ -70,10 +71,8 @@ function bot(runBot) {
         for (let i = 0; i < allBox.length; i++) {
             if (allBox[i].childElementCount == 0) {
                 array.push(i);
-                console.log(i + "" + "has no children");
             }
         }
-        console.log(array);
         let randomBox = 0;
         do {
             randomBox = array[Math.floor(Math.random() * array.length)];
@@ -98,25 +97,25 @@ function bot(runBot) {
 }
 
 // definir le gagnant
-function getClass(classname) {
-    return document.querySelector(".item" + classname).id;
+function getClass(idname) {
+    return document.querySelector(".items" + idname).id;
 }
 
-function ckeckThreeClasses(val1, val2, val3, sign) {
+function checkClasses(val1, val2, val3, sign) {
     if (getClass(val1) === sign && getClass(val2) === sign && getClass(val3) === sign) {
         return true;
     }
 }
 
 function selectWinner() {
-    if (ckeckThreeClasses(1, 2, 3, playerSign) || ckeckThreeClasses(4, 5, 6, playerSign) || ckeckThreeClasses(7, 8, 9, playerSign) || ckeckThreeClasses(1, 4, 3, playerSign) || ckeckThreeClasses(2, 5, 8, playerSign) || ckeckThreeClasses(3, 6, 9, playerSign) || ckeckThreeClasses(1, 5, 9, playerSign) || ckeckThreeClasses(3, 5, 7, playerSign)) {
+    if (checkClasses(1, 2, 3, playerSign) || checkClasses(4, 5, 6, playerSign) || checkClasses(7, 8, 9, playerSign) || checkClasses(1, 4, 7, playerSign) || checkClasses(2, 5, 8, playerSign) || checkClasses(3, 6, 9, playerSign) || checkClasses(1, 5, 9, playerSign) || checkClasses(3, 5, 7, playerSign)) {
         runBot = false;
         bot(runBot);
         setTimeout(() => {
             playBoard.classList.remove("show");
             resultBox.classList.add("show");
-        }, 700);
-        wonText.innerHTML = 'VICTORY';
+        }, 100);
+        wonText.innerHTML = ` ${playerSign}`;
     }
 }
 
