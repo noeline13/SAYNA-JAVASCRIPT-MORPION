@@ -70,8 +70,10 @@ function bot(runBot) {
         for (let i = 0; i < allBox.length; i++) {
             if (allBox[i].childElementCount == 0) {
                 array.push(i);
+                console.log(i + "" + "has no children");
             }
         }
+        console.log(array);
         let randomBox = 0;
         do {
             randomBox = array[Math.floor(Math.random() * array.length)];
@@ -101,14 +103,13 @@ function getClass(classname) {
 }
 
 function ckeckThreeClasses(val1, val2, val3, sign) {
-    if (getClass(val1) == sign && getClass(val2) == sign && getClass(val3) == sign) {
+    if (getClass(val1) === sign && getClass(val2) === sign && getClass(val3) === sign) {
         return true;
     }
 }
 
 function selectWinner() {
     if (ckeckThreeClasses(1, 2, 3, playerSign) || ckeckThreeClasses(4, 5, 6, playerSign) || ckeckThreeClasses(7, 8, 9, playerSign) || ckeckThreeClasses(1, 4, 3, playerSign) || ckeckThreeClasses(2, 5, 8, playerSign) || ckeckThreeClasses(3, 6, 9, playerSign) || ckeckThreeClasses(1, 5, 9, playerSign) || ckeckThreeClasses(3, 5, 7, playerSign)) {
-        console.log(playerSign + " " + "is the winner")
         runBot = false;
         bot(runBot);
         setTimeout(() => {
