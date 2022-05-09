@@ -3,7 +3,8 @@ const selectBox = document.querySelector(".select-box"),
     selectXBtn = selectBox.querySelector(".options .playerX"),
     selectOBtn = selectBox.querySelector(".options .playerO"),
     playBoard = document.querySelector(".container"),
-    players = document.querySelector(".range"),
+    players = document.querySelector(".players"),
+    slider = document.querySelector(".slider"),
     allBox = document.querySelectorAll("section button"),
     resultBox = document.querySelector(".result-box"),
     wonText = resultBox.querySelector(".won-text"),
@@ -11,26 +12,30 @@ const selectBox = document.querySelector(".select-box"),
 
 //lors de la telegargement du page
 window.onload = () => {
-    for (let i = 0; i < allBox.length; i++) {
-        allBox[i].setAttribute("onclick", "chooseCase(this)");
+        for (let i = 0; i < allBox.length; i++) {
+            allBox[i].setAttribute("onclick", "chooseCase(this)");
+        }
+
+
+        //selection des button
+
+        selectXBtn.onclick = () => {
+            selectBox.classList.add("hide");
+            playBoard.classList.add("show");
+            slider.setAttribute("class", "slider")
+            players.setAttribute("class", "players actives player")
+
+        }
+
+        selectOBtn.onclick = () => {
+            selectBox.classList.add("hide");
+            playBoard.classList.add("show");
+            slider.setAttribute("class", "slider")
+        }
     }
-}
-
-selectXBtn.onclick = () => {
-    selectBox.classList.add("hide");
-    playBoard.classList.add("show");
-    players.setAttribute("class", "range active player")
-
-}
-
-selectOBtn.onclick = () => {
-    selectBox.classList.add("hide");
-    playBoard.classList.add("show");
-    players.setAttribute("class", "range active player")
-}
-
-let playerOIcon = "far fa-circle";
-let playerXIcon = "fas fa-times";
+    // definir les joueur
+let playerOIcon = "O";
+let playerXIcon = "X";
 let playerSign = "X";
 let runBot = true;
 
@@ -38,13 +43,13 @@ let runBot = true;
 function chooseCase(element) {
     if (players.classList.contains("player")) {
         playerSign = "O";
-        element.innerHTML = `<i class="${playerXIcon}"></i>`;
-        players.classList.add("active");
+        element.innerHTML = playerXIcon;
+        slider.setAttribute("class", "active")
         element.setAttribute("id", playerSign)
     } else {
-        element.innerHTML = `<i class="${playerOIcon}"></i>`;
-        players.classList.add("active");
+        element.innerHTML = playerOIcon;
         element.setAttribute("id", playerSign);
+        slider.setAttribute("class", "active")
     }
     selectWinner();
     playBoard.style.pointerEvents = "none";
@@ -74,12 +79,12 @@ function bot(runBot) {
         if (array.length > 0) {
             if (players.classList.contains("player")) {
                 playerSign = "X";
-                allBox[randomBox].innerHTML = `<i class="${playerOIcon}"></i>`;
-                players.classList.remove("active");
+                allBox[randomBox].innerHTML = playerOIcon;
+                slider.setAttribute("class", "slider")
                 allBox[randomBox].setAttribute("id", playerSign);
             } else {
-                allBox[randomBox].innerHTML = `<i class="${playerXIcon}"></i>`;
-                players.classList.add("active");
+                allBox[randomBox].innerHTML = playerXIcon;
+                slider.setAttribute("class", "slider")
                 allBox[randomBox].setAttribute("id", playerSign);
             }
             selectWinner();

@@ -111,34 +111,55 @@ body {
 
 /*tour*/
 
-.range {
+.details {
     color: #000;
+    background-color: #3266ba;
     font-weight: 500;
-    padding: 5% 0 5% 10%;
-    border-radius: 1.5%;
+    padding: 5% 5% 5% 10%;
+    border-radius: 1%;
     position: relative;
 }
 
-.range .turn {
+.details .players {
+    display: flex;
+    justify-content: space-between;
     border-radius: 5px;
     padding: 7px 0;
     position: relative;
     transition: all 0.3s ease;
 }
 
-.range .slider {
+.details .turn {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 7px 0;
+    position: relative;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-left: 1%;
+}
+
+.slider {
+    background-color: aqua;
     position: absolute;
     top: 70%;
-    left: 5%;
+    left: 10%;
     height: 10%;
-    width: 48%;
-    background-color: #3266ba;
+    width: 40%;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.range .active .slider {
-    left: 50%;
+.active {
+    background-color: aqua;
+    position: absolute;
+    top: 70%;
+    left: 60%;
+    height: 10%;
+    width: 40%;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 
